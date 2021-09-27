@@ -10,4 +10,10 @@ describe Account do
     account = Account.new
     expect { account.deposit(1000) }.to change { account.balance }.by(1000)
   end
+
+  it 'can withdraw money from the account' do
+    account = Account.new
+    account.deposit(1000)
+    expect { account.withdraw(500) }.to change { account.balance }.by(-500)
+  end
 end
