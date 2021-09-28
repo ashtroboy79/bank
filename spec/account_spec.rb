@@ -1,6 +1,15 @@
 require 'account'
+require 'timecop'
 
 describe Account do
+  before do
+    Timecop.freeze(Time.local(2021, 9, 27, 10, 5, 0))
+  end
+
+  after do
+    Timecop.return
+  end
+
   it 'creates a new account' do
     account = Account.new
     expect(account).to be_kind_of(Account)
@@ -25,6 +34,12 @@ describe Account do
   it 'cannot withdraw more money than in the account' do
     account = Account.new
     expect { account.withdraw(10) }.to raise_error('Insufficient Funds')
+  end
+
+  it 'can record details of a deposit transaction' do
+    account = Account.new
+    account.deposit(100)
+    expect(account.transaction.first).to include(:date => "27/09/2021", :credit => 100, :debit => "", :balance => 100)
   end
 
 end
