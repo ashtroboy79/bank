@@ -52,7 +52,7 @@ date       || credit  || debit  || balance
 ## Rspec and simple-cov results
 
 Account
-  creates a new account
+  creates a new account 
   starts with a balance of 0
   can deposit money to the account
   can withdraw money from the account
@@ -66,7 +66,6 @@ Statement
   can print statement
   can print a multi-transaction statement
 
-Finished in 0.0536 seconds (files took 0.32902 seconds to load)
 11 examples, 0 failures
 
 COVERAGE: 100.00% -- 79/79 lines in 4 files
