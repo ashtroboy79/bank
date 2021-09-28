@@ -1,6 +1,10 @@
 require 'account'
 
 describe Account do
+
+  let(:statement) { double }
+  subject { described_class.new(statement)}
+
   before do
     Timecop.freeze(Time.local(2021, 9, 27, 10, 5, 0))
   end
@@ -46,5 +50,10 @@ describe Account do
     account.deposit(100)
     account.withdraw(50)
     expect(account.transaction.last).to include(:date => "27/09/2021", :credit => "", :debit => 50, :balance => 50)
+  end
+
+  it 'calls the print method for the statement class' do
+    expect(statement).to receive(:print)
+    subject.print_statement
   end
 end

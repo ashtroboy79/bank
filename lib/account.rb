@@ -1,10 +1,12 @@
+# require 'statement'
 class Account
 
   attr_reader :balance, :transaction
 
-  def initialize
+  def initialize(statement = Statement.new)
     @balance = 0
     @transaction = []
+    @statement = statement
   end
 
   def deposit(amount)
@@ -16,6 +18,10 @@ class Account
     raise 'Insufficient Funds' if amount > @balance
     @balance -= amount
     @transaction << { :date => date, :credit => "", :debit => amount, :balance => balance }
+  end
+
+  def print_statement
+    @statement.print(@transaction)
   end
 
   private
