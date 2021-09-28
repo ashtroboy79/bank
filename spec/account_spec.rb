@@ -6,6 +6,11 @@ describe Account do
     expect(account).to be_kind_of(Account)
   end
 
+  it 'starts with a balance of 0' do
+    account = Account.new
+    expect(account.balance).to eq 0
+  end
+
   it 'can deposit money to the account' do
     account = Account.new
     expect { account.deposit(1000) }.to change { account.balance }.by(1000)
@@ -21,4 +26,5 @@ describe Account do
     account = Account.new
     expect { account.withdraw(10) }.to raise_error('Insufficient Funds')
   end
+
 end

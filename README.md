@@ -22,14 +22,14 @@ date       || credit  || debit  || balance
 
 So looking at the above acceptance criteria, we can see that there are 3 things interacting, a client, an account and a way of printing out the statement. So the question is how many classes do I need, initially I was thinking of having 3 classes one for each, however currently the client class has no data specified for it as such I feel it is unnecessary. This leave me with two classes, as follows
 
-|     Account      |                       |    Statement       |
-====================                       ======================
-| @balance         |  					   |                    |
-| transaction      |                       ======================
-====================                       |  print_statement   |
-| deposit          |                       ======================
-| withdraw         |					   
-| balance(maybe)   |
-| statement        |
+|     Account         |                       |    Statement       |
+=======================                       ======================
+| @balance            |  					            |                    |
+| transaction_history |                       ======================
+=======================                       |  print_statement   |
+| deposit             |                       ======================
+| withdraw            |					   
+| balance(maybe)      |
+| statement           |
 
-Now the question is how to hold the balance, as I'm going to have to store the transaction details in order to be able to print out the statement in the format needed, it would be possible to calculate the balance each time a statement is requested, or it could be the current balance thus there would be no need for a balance method. At the moment there is no requirement to display the balance independantly of a statement, nor is there explicitly any constraints on a negative balance. 
+Now the question is how to hold the balance, as I'm going to have to store the transaction details in order to be able to print out the statement in the format needed, it would be possible to calculate the balance each time a statement is requested, or it could be the current balance thus there would be no need for a balance method. At the moment there is no requirement to display the balance independantly of a statement, nor is there explicitly any constraints on a negative balance. The time of a deposit and withdrawal will need to be stored together with the type of transaction, while I could've made a transaction class, the simplest method would be a hash of key value pairs representing date, credit, debit and balance, stored in a transaction history array.
