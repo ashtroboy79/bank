@@ -39,7 +39,13 @@ describe Account do
   it 'can record details of a deposit transaction' do
     account = Account.new
     account.deposit(100)
-    expect(account.transaction.first).to include(:date => "27/09/2021", :credit => 100, :debit => "", :balance => 100)
+    expect(account.transaction.last).to include(:date => "27/09/2021", :credit => 100, :debit => "", :balance => 100)
   end
 
+  it 'can record details of a withdrawal tranaction' do
+    account = Account.new
+    account.deposit(100)
+    account.withdraw(50)
+    expect(account.transaction.last).to include(:date => "27/09/2021", :credit => "", :debit => 50, :balance => 50)
+  end
 end
