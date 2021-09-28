@@ -1,5 +1,4 @@
 require 'account'
-require 'timecop'
 
 describe Account do
   before do
