@@ -3,7 +3,7 @@ require 'account'
 describe Account do
 
   let(:statement) { double }
-  subject { described_class.new(statement)}
+  subject { described_class.new(statement) }
 
   before do
     Timecop.freeze(Time.local(2021, 9, 27, 10, 5, 0))
