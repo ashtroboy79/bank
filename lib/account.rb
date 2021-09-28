@@ -1,4 +1,3 @@
-# require 'statement'
 class Account
 
   attr_reader :balance, :transaction

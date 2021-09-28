@@ -12,7 +12,7 @@ describe Statement do
     expect { statement.print(transaction) }.to output("date       || credit  || debit  || balance \n28/09/2021 || 1000.00 ||  || 1000.00 \n").to_stdout
   end
 
-  it do
+  it 'can print a multi-transaction statement' do
     statement = Statement.new
     transaction1 = { :date => "27/09/2021", :credit => 1000, :debit => "", :balance => 1000 }
     transaction2 = { :date => "28/09/2021", :credit => "", :debit => 500, :balance => 500 }
