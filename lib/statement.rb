@@ -9,7 +9,7 @@ class Statement
 
   def format(value)
     return unless value.is_a? Integer 
-    value = "#{'%0.2f' % value}"
+    value = ('%0.2f' % value).to_s
   end
 
 end
