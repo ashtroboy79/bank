@@ -24,7 +24,7 @@ So looking at the above acceptance criteria, we can see that there are 3 things 
 
 |     Account         |                       |    Statement       |                                                                                             
 -----------------------                       ----------------------                                                                                             
-| @balance            |  					            |                    |                                                                                             
+|  balance            |                       |                    |                                                                                             
 | transaction_history |                       ----------------------                                                                                             
 -----------------------                       |  print             |                                                                                             
 | deposit             |                       ----------------------                                                                                             
