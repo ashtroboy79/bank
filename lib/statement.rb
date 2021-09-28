@@ -2,8 +2,8 @@ class Statement
 
   def print(transactions = [])
     puts 'date       || credit  || debit  || balance '
-    transactions.each do |transaction| 
-      puts "#{transaction[:date]} || #{format(transaction[:credit])} || #{format(transaction[:debit])} || #{format(transaction[:balance])}"
+    transactions.reverse.each do |transaction| 
+      puts "#{transaction[:date]} || #{format(transaction[:credit])} || #{format(transaction[:debit])} || #{format(transaction[:balance])} "
     end
   end
 
