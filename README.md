@@ -21,7 +21,8 @@ date       || credit  || debit  || balance
 10/01/2012 || 1000.00 ||  || 1000.00																						                                                                                 
 
 So looking at the above acceptance criteria, we can see that there are 3 things interacting, a client, an account and a way of printing out the statement. So the question is how many classes do I need, initially I was thinking of having 3 classes one for each, however currently the client class has no data specified for it as such I feel it is unnecessary. This leave me with two classes, as follows
-
+  
+_______________________                       ______________________                                                                                               
 |     Account         |                       |    Statement       |                                                                                             
 _______________________                       ______________________                                                                                               
 |  balance            |                       |                    |                                                                                             
@@ -36,6 +37,11 @@ Now the question is how to hold the balance, as I'm going to have to store the t
 
 The time of a deposit and withdrawal will need to be stored together with the type of transaction, while I could've made a transaction class, the simplest method would be a hash of key value pairs representing date, credit, debit and balance, stored in a transaction history array.  In order to test the recording of the deposit it was necessary to stub the date of the transaction, to do so I used the Timecop gem. 
 
+## Installation of dependancies 
+Use the following commands in a terminal program
+1. bundle install
+2. rspec --init
+
 ## Usage in a REPL such as irb                                                                                                                                   
 :001 > require "./lib/statement.rb"                                                                                                                               
 :002 > require "./lib/account.rb"                                                                                                                                 
@@ -47,9 +53,13 @@ The time of a deposit and withdrawal will need to be stored together with the ty
 date       || credit  || debit  || balance                                                                                                                       
 28/09/2021 ||  || 500.00 || 2500.00                                                                                                                               
 28/09/2021 || 2000.00 ||  || 3000.00                                                                                                                             
-28/09/2021 || 1000.00 ||  || 1000.00                                                                                                                             
+28/09/2021 || 1000.00 ||  || 1000.00     
 
-## Rspec and simple-cov results                                                                                                                                   
+## Running tests 
+In a terminal program navigate to the project directory root and enter the following command
+1. rspec
+
+## Rspec and simple-cov results                                                                                                                    
 
 Account                                                                                                                                                          
   creates a new account                                                                                                                                           
